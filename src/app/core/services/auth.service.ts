@@ -19,6 +19,7 @@ export class AuthService {
       tap(response => {
         if(response.token){
           console.log(response.token);
+          this.setToken(response.token);
         }
       })
     )
@@ -29,7 +30,11 @@ export class AuthService {
   }
 
   private getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+    if(typeof window !== 'undefined'){
+      return localStorage.getItem(this.tokenKey);
+    }else{
+      return null;
+    }
   }
 
   isAuthenticated(): boolean{

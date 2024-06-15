@@ -29,12 +29,14 @@
 			<div class="space-y-6">
 				<div class="">
 					<input 
+                        [(ngModel)]="user"
                         class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"  
                         type="" 
                         placeholder="User name">
                 </div>
                 <div class="relative" x-data="{ show: true }">
                     <input 
+                        [(ngModel)]="password"
                         placeholder="Password" 
                         type="password"
                         style="color: #000;"
@@ -65,7 +67,10 @@
                     </div>
                 </div>
 					<div>
-						<button type="submit" class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
+						<button 
+                            (click)="login()"
+                            type="submit" 
+                            class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
                             Sign in
                         </button>
 					</div>
